@@ -1,0 +1,20 @@
+<p-toolbar styleClass="bg-primary border-noround">
+    <button pButton icon="pi pi-align-justify" class="p-button-text text-white"
+        (click)="displayOrHiddenSidebar()"></button>
+    <h1>Simple Stock Angular</h1>
+</p-toolbar>
+<p-sidebar [(visible)]="isSidebarVisible">
+    <div class="p-3">
+        <h3 class="p-3">Menu de Opções</h3>
+        <ul class="list-none">
+            <li><a routerLink="" class="text-decoration-none"><button pButton label="Início" class="p-button-text mt-1"
+                        icon="pi pi-home"></button></a></li>
+            <li><a routerLink="products/insert" class="text-decoration-none"><button pButton label="Inserir Produto"
+                        icon="pi pi-plus" class="p-button-text mt-1"></button></a></li>
+            <li><a routerLink="products/active" class="text-decoration-none"><button pButton label="Produtos Ativos"
+                        icon="pi pi-list" class="p-button-text mt-1"></button></a></li>
+            <li><a class="text-decoration-none" routerLink="products/inactive"><button pButton label="Produtos Inativos"
+                        icon="pi pi-eye-slash" class="p-button-text"></button></a></li>
+        </ul>
+    </div>
+</p-sidebar>

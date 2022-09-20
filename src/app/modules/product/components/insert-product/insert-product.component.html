@@ -1,0 +1,35 @@
+<div class="m-3">
+    <p-panel header="Adicionar Produto">
+        <form [formGroup]="form!" (ngSubmit)="handleSubmit()">
+            <div class="flex flex-column field">
+                <h4>Nome</h4>
+                <input type="text" pInputText id="name" formControlName="name">
+                <small class="block">O campo é requerido</small>
+            </div>
+            <div class="flex flex-column field">
+                <h4>Preço</h4>
+                <p-inputNumber formControlName="price" [minFractionDigits]="2" [maxFractionDigits]="2" id="price"
+                    styleClass="w-full">
+                </p-inputNumber>
+                <small class="block">O campo é requerido e deve possuir um valor maior ou igual a zero</small>
+            </div>
+            <div class="flex flex-column field">
+                <h4>Quantidade</h4>
+                <p-inputNumber formControlName="amount" id="amount" styleClass="w-full"></p-inputNumber>
+                <small class="block">O campo é requerido e deve possuir um valor maior ou igual a zero</small>
+            </div>
+            <button pButton label="Adicionar" icon="pi pi-plus" [disabled]="shouldDisableForm()"></button>
+        </form>
+    </p-panel>
+</div>
+<div *ngIf="loadingService.getIsLoading()" class="flex justify-content-center m-3">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<p-toast position="top-center" (onClose)="closeMessage()" styleClass="p-3 opacity-100">
+    <ng-template let-message pTemplate="message">
+        <div class="flex flex-column p-3" style="flex: 1;">
+            <h4>{{ message.summary }}</h4>
+            <p class="mt-3">{{ message.detail }}</p>
+        </div>
+    </ng-template>
+</p-toast>
